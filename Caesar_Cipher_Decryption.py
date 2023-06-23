@@ -11,4 +11,11 @@ def caesars_cipher(ciphertext: str, right_shift: bool=True, key: int=3) -> str:
     '''
     plaintext = ''
     
-    ciphertext = ciphertext.upper()                                         
+    ciphertext = ciphertext.upper()   
+    if right_shift == True:                                                
+        for letter in ciphertext:
+            if letter in alphabet:                                        # Checks the letters in the ciphertext
+                new_pos = (alphabet.index(letter) + key) % 26             # Returns the reminder of the division by 26
+                plaintext += alphabet[new_pos]
+            else:
+                plaintext += letter                                        
