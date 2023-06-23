@@ -18,4 +18,14 @@ def caesars_cipher(ciphertext: str, right_shift: bool=True, key: int=3) -> str:
                 new_pos = (alphabet.index(letter) + key) % 26             # Returns the reminder of the division by 26
                 plaintext += alphabet[new_pos]
             else:
-                plaintext += letter                                        
+                plaintext += letter  
+    else:
+        for letter in ciphertext:                                          # Performs the left shift
+            if letter in alphabet:        
+                new_pos = (alphabet.index(letter) - key) % 26
+                plaintext += alphabet[new_pos]
+            else:
+                plaintext += letter
+
+    return plaintext
+                                              
